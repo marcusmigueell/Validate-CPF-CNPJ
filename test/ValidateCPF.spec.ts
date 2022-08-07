@@ -1,4 +1,4 @@
-import { ValidateCPF } from "./ValidateCPF"
+import { ValidateCPF } from "../src/functions/ValidateCPF"
 
 describe("Function Validation ValidateCPF", () => {
 

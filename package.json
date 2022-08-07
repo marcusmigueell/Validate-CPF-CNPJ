@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon --transpile-only src/server.ts",
     "production": "pm2 start pm2.json",
-    "test": "jest --detectOpenHandles"
+    "test": "jest"
   },
   "dependencies": {
     "express": "^4.17.2"

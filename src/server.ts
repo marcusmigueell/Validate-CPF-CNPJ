@@ -1,8 +1,5 @@
-import express from "express";
-import { routes } from "./routes";
+import { app } from "./app";
 
-const app = express();
+const PORT = process.env.PORT || 3000;
 
-app.use(express.json());
-app.use(routes);
-app.listen(3000, () => console.log("\u{1F525} Server is running"));
+app.listen(PORT, () => console.log(`\u{1F525} Server is running on PORT ${PORT}`));
