@@ -1,0 +1,11 @@
+{
+    "apps": [
+        {
+            "name": "valida-cpf-cnpj",
+            "script": "./src/server.ts",
+            "watch": ["./src"],
+            "instances": 1,
+            "exec_mode": "cluster"
+        }
+    ]
+}
