@@ -3,6 +3,7 @@ import { Format } from "./Format";
 type RunRequest = {
     data: string;
 }
+
 export class ValidateCPF {
     async run({ data }: RunRequest): Promise<Boolean | Error> {
 
