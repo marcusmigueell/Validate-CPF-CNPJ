@@ -4,20 +4,18 @@
 type ValidateRequest = {
     data: string;
 }
-
 export class ValidateService {
     async execute({ data }: ValidateRequest): Promise<Boolean | Error> {
         
         const validateCPF = new ValidateCPF();
-        // const validateCNPJ = new ValidateCNPJ();
+        const validateCNPJ = new ValidateCNPJ();
         
         var response: any;
 
-        if(data.length >= 11 && data.length <= 14) {
+        if(data.length === 11) 
             response = await validateCPF.run({ data });
-        } else {
-            // response = await validateCNPJ.run({ data });
-        }
+        else 
+            response = await validateCNPJ.run({ data });
         
         return response;
     }

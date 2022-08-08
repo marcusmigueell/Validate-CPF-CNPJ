@@ -1,10 +1,17 @@
 import { Request, Response } from "express";
 import { ValidateService } from "../services/ValidateService";
+import { Authenticator } from "../functions/Authenticator";
 
 export class ValidateController {
     async handle(req: Request, res: Response) {
         
-        const { data } = req.params;
+        let { data } = req.params;  
+
+        const auth = new Authenticator();
+        const validation = await auth.execute({ data });
+        
+        if(validation instanceof Error)
+            return res.status(400).json(validation.message);
 
         const service = new ValidateService();
 
@@ -13,6 +20,6 @@ export class ValidateController {
         if(result instanceof Error)
             return res.status(400).json(result.message);
 
-        return res.json(`CPF ${data} é válido`);
+        return res.json(`${data.length === 11 ? 'CPF' : 'CNPJ'} ${validation} is valid!`);
     }
 }
